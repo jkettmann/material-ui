@@ -82,7 +82,8 @@ class DatePickerDialog extends Component {
     this.dismiss();
   };
 
-  handleTouchTapOk = () => {
+  handleTouchTapOk = (event) => {
+    event.preventDefault();
     if (this.props.onAccept && !this.refs.calendar.isSelectedDateDisabled()) {
       this.props.onAccept(this.refs.calendar.getSelectedDate());
     }
