@@ -82,7 +82,8 @@ class DatePickerDialog extends Component {
     this.dismiss();
   };
 
-  handleTouchTapOk = () => {
+  handleTouchTapOk = (event) => {
+    event.preventDefault();
     if (this.props.onAccept && !this.refs.calendar.isSelectedDateDisabled()) {
       this.props.onAccept(this.refs.calendar.getSelectedDate());
     }
@@ -130,6 +131,10 @@ class DatePickerDialog extends Component {
     const styles = {
       dialogContent: {
         width: mode === 'landscape' ? 479 : 310,
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: 'translate(-50%, -50%)'
       },
       dialogBodyContent: {
         padding: 0,
